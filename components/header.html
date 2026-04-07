@@ -1,0 +1,57 @@
+<!-- 导航栏组件 -->
+<header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+    <div class="container mx-auto px-4 md:px-8 py-4">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-2xl font-light tracking-wider">
+                <img src="assets/images/logo1.png" alt="海拓商通" class="w-10 h-10 mr-3">
+                <span data-i18n="footer.company">海拓商通</span>
+            </a>
+
+            <!-- 导航菜单 - 桌面端显示 -->
+            <nav class="hidden md:flex items-center space-x-10 ml-auto">
+                <a href="index.html" class="nav-link text-sm font-light tracking-wider" data-i18n="pages.index.navigation.home">首页</a>
+                <a href="about.html" class="nav-link text-sm font-light tracking-wider" data-i18n="pages.index.navigation.about">公司简介</a>
+                <a href="business.html" class="nav-link text-sm font-light tracking-wider" data-i18n="pages.index.navigation.business">业务介绍</a>
+                <a href="contact.html" class="nav-link text-sm font-light tracking-wider" data-i18n="pages.index.navigation.contact">联系方式</a>
+            </nav>
+
+            <!-- 语言切换器 - 桌面端显示 -->
+            <div class="hidden md:block lang-switcher ml-8">
+                <div class="relative">
+                    <button class="flex items-center space-x-2 text-sm font-light text-text hover:text-accent transition-smooth" id="lang-selector">
+                        <i class="fa fa-globe"></i>
+                        <span id="current-lang" data-i18n="language.zh">中文</span>
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-sm shadow-lg hidden" id="lang-dropdown">
+                        <a href="#" class="block px-4 py-2 text-sm font-light hover:bg-secondary transition-smooth" data-lang="zh-CN" data-i18n="language.zh">中文</a>
+                        <a href="#" class="block px-4 py-2 text-sm font-light hover:bg-secondary transition-smooth" data-lang="ja" data-i18n="language.ja">日本語</a>
+                        <a href="#" class="block px-4 py-2 text-sm font-light hover:bg-secondary transition-smooth" data-lang="en" data-i18n="language.en">English</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-text focus:outline-none" id="menu-toggle">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 移动端菜单 -->
+    <div class="md:hidden bg-white border-t border-gray-100 hidden" id="mobile-menu">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-sm font-light tracking-wider py-2" data-i18n="pages.index.navigation.home">首页</a>
+                <a href="about.html" class="text-sm font-light tracking-wider py-2" data-i18n="pages.index.navigation.about">公司简介</a>
+                <a href="business.html" class="text-sm font-light tracking-wider py-2" data-i18n="pages.index.navigation.business">业务介绍</a>
+                <a href="contact.html" class="text-sm font-light tracking-wider py-2" data-i18n="pages.index.navigation.contact">联系方式</a>
+                <div class="flex space-x-4 pt-2 border-t border-gray-100 lang-switcher">
+                    <a href="#" class="text-sm font-light active" data-lang="zh-CN" data-i18n="language.zh">中文</a>
+                    <a href="#" class="text-sm font-light text-lightText" data-lang="ja" data-i18n="language.ja">日本語</a>
+                    <a href="#" class="text-sm font-light text-lightText" data-lang="en" data-i18n="language.en">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
