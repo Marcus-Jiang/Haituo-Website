@@ -1,0 +1,397 @@
+<!--
+contact.html - 海拓商通官网联系方式页面
+
+页面结构:
+1. 文档头部 - 包含元数据、外部资源和自定义样式
+2. 导航栏 - 固定在顶部，包含公司logo、导航菜单和语言切换
+3. 页面标题 - 显示页面主题和简短描述
+4. 联系信息 - 包含地址、电话、邮箱和营业时间
+5. 分支机构 - 显示香港和日本公司的联系信息
+6. 联系表单 - 用于用户发送消息
+7. 常见问题 - 解答用户常见疑问
+8. 页脚 - 包含公司信息、导航链接和社交媒体
+9. 脚本部分 - 处理移动端菜单和表单提交
+
+国际化支持:
+- 使用data-i18n属性标记需要翻译的文本
+- 加载i18n.js脚本处理语言切换和翻译
+
+响应式设计:
+- 使用Tailwind CSS的响应式类
+- 针对不同屏幕尺寸优化布局
+
+表单功能:
+- 包含姓名、邮箱、公司、主题和留言字段
+- 表单提交后显示成功提示并重置表单
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 文档元数据 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杭州海拓商通国际贸易有限公司 | 联系方式</title>
+    
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A4750',
+                        secondary: '#F8F9FA',
+                        accent: '#7A8B9C',
+                        text: '#333333',
+                        lightText: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'Noto Sans JP', 'Noto Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Tailwind 工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .text-balance { text-wrap: balance; }
+            .transition-smooth { transition: all 0.5s ease-in-out; }
+        }
+    </style>
+    
+    <!-- 自定义样式 -->
+    <style>
+        /* 导入字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+        
+        /* 全局样式 */
+        body {
+            font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif;
+            background-color: #F8F9FA;
+        }
+        
+        /* 导航链接样式 */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7A8B9C;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* 主按钮样式 */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(215, 179, 119, 0.3);
+        }
+        
+        /* 语言切换器样式 */
+        .lang-switcher a {
+            transition: all 0.3s ease;
+        }
+        
+        .lang-switcher a:hover {
+            color: #7A8B9C;
+        }
+        
+        .lang-switcher a.active {
+            color: #7A8B9C;
+            font-weight: 500;
+        }
+        
+        /* 保留文本中的换行符 */
+        .preserve-newlines {
+            white-space: pre-line;
+        }
+
+        /* 页面动画样式 - 滚动渐变效果 */
+        /* 联系信息区块动画 */
+        #contact-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #contact-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FAQ区块动画 */
+        #faq-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #faq-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FAQ卡片动画 - 交错动画效果 */
+        .card-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .card-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-animate:nth-child(1) { transition-delay: 0.1s; }
+        .card-animate:nth-child(2) { transition-delay: 0.2s; }
+        .card-animate:nth-child(3) { transition-delay: 0.3s; }
+
+        /* 页脚区块动画 */
+        #footer-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #footer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    
+    <!-- 国际化脚本 -->
+    <script src="i18n.js"></script>
+    <script src="components-loader.js"></script>
+</head>
+<body class="text-text">
+    <!-- 导航栏占位符 -->
+    <div id="header-placeholder"></div>
+
+    <!-- 页面标题 -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-light tracking-wider mb-6" data-i18n="pages.contact.hero.title">
+                    联系方式
+                </h1>
+                <p class="text-lightText text-lg font-light leading-relaxed" data-i18n="pages.contact.hero.description">
+                    如果您对我们的服务感兴趣，欢迎随时与我们联系，我们将竭诚为您服务。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系信息 -->
+    <section id="contact-section" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- 联系信息左侧 -->
+                    <div>
+                        <h2 class="text-3xl font-light tracking-wider mb-8" data-i18n="pages.contact.info.title">
+                            联系信息
+                        </h2>
+                        
+                        <div class="space-y-6">
+                            <!-- 地址信息 -->
+                            <div class="flex">
+                                <div class="w-10 flex-shrink-0 flex items-center justify-center">
+                                    <i class="fa fa-map-marker text-accent"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-base font-light mb-2" data-i18n="pages.contact.info.addressLabel">地址</h3>
+                                    <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.contact.info.address">
+                                        浙江省杭州市滨江区长河街道月明路1040号3层36201室
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- 电话信息 -->
+                            <div class="flex">
+                                <div class="w-10 flex-shrink-0 flex items-center justify-center">
+                                    <i class="fa fa-phone text-accent"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-base font-light mb-2" data-i18n="pages.contact.info.phoneLabel">电话</h3>
+                                    <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.contact.info.phone">
+                                        +86-0571-8088-0800
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- 邮箱信息 -->
+                            <div class="flex">
+                                <div class="w-10 flex-shrink-0 flex items-center justify-center">
+                                    <i class="fa fa-envelope text-accent"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-base font-light mb-2" data-i18n="pages.contact.info.emailLabel">邮箱</h3>
+                                    <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.contact.info.email">
+                                        info@haituointl.com
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- 营业时间 -->
+                            <div class="flex">
+                                <div class="w-10 flex-shrink-0 flex items-center justify-center">
+                                    <i class="fa fa-clock-o text-accent"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-base font-light mb-2" data-i18n="pages.contact.info.hours">营业时间</h3>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.contact.info.hoursContent">
+                                        周一至周五: 9:00 - 18:00
+                                        <br>
+                                        周六: 10:00 - 14:00
+                                        <br>
+                                        周日及法定节假日休息
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 社交媒体 -->
+                        <div class="mt-12">
+                            <h3 class="text-base font-light mb-4" data-i18n="pages.contact.info.follow">关注我们</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-lightText hover:text-accent transition-smooth">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="text-lightText hover:text-accent transition-smooth">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-lightText hover:text-accent transition-smooth">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-lightText hover:text-accent transition-smooth">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 联系信息右侧 -->
+                    <div>
+                        <!-- 公司环境图片 -->
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20business%20office%20reception%20area&image_size=landscape_4_3" alt="公司环境" class="w-full h-auto rounded-sm mb-8">
+                        
+                        <!-- 分支机构信息 -->
+                        <div class="bg-white p-6 rounded-sm">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.contact.branches.title">分支机构</h3>
+                            <div class="space-y-4">
+                                <!-- 香港公司 -->
+                                <div>
+                                    <h4 class="text-sm font-light text-accent mb-2" data-i18n="pages.contact.branches.hk.name">香港公司</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.contact.branches.hk.content">
+                                        HAITUO HONG KONG LIMITED
+                                        <br>
+                                        香港特别行政区中环皇后大道中18号新世界大厦25楼2501室
+                                    </p>
+                                </div>
+                                <!-- 日本公司 -->
+                                <div>
+                                    <h4 class="text-sm font-light text-accent mb-2" data-i18n="pages.contact.branches.jp.name">日本公司</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.contact.branches.jp.content">
+                                        HAITUO JAPAN CO., LTD.
+                                        <br>
+                                        日本东京都港区六本木6-10-1 六本木新城森塔23楼
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq-section" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-12 text-center" data-i18n="pages.contact.faq.title">
+                    常见问题
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- 问题1 -->
+                    <div class="card-animate bg-white p-6 rounded-sm">
+                        <h3 class="text-lg font-light mb-3" data-i18n="pages.contact.faq.items[0].question">如何预约咨询服务？</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.contact.faq.items[0].answer">
+                            您可以通过电话、邮箱或在线表单与我们联系，我们的客服人员会在24小时内与您联系，安排专业的咨询服务。
+                        </p>
+                    </div>
+                    
+                    <!-- 问题2 -->
+                    <div class="card-animate bg-white p-6 rounded-sm">
+                        <h3 class="text-lg font-light mb-3" data-i18n="pages.contact.faq.items[1].question">服务费用如何计算？</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.contact.faq.items[1].answer">
+                            我们的服务费用根据项目类型、复杂度和时间等因素综合计算，我们会在咨询前为您提供详细的费用方案。
+                        </p>
+                    </div>
+                    
+                    <!-- 问题3 -->
+                    <div class="card-animate bg-white p-6 rounded-sm">
+                        <h3 class="text-lg font-light mb-3" data-i18n="pages.contact.faq.items[2].question">服务周期大概多长时间？</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.contact.faq.items[2].answer">
+                            服务周期根据项目类型和复杂度而定，一般在1-3个月之间，我们会在项目启动前为您提供详细的时间规划。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本部分 -->
+    <script>
+        // 滚动动画检测脚本
+        function checkScroll() {
+            const windowHeight = window.innerHeight;
+            const scrollTriggerPoint = windowHeight * 0.85;
+            const sections = [
+                { id: 'contact-section', selector: null },
+                { id: 'faq-section', selector: '.card-animate' },
+                { id: 'footer-section', selector: null }
+            ];
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                if (!element) return;
+                const rect = element.getBoundingClientRect();
+                if (rect.top < scrollTriggerPoint) {
+                    element.classList.add('visible');
+                    if (section.selector) {
+                        element.querySelectorAll(section.selector).forEach(child => {
+                            child.classList.add('visible');
+                        });
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>

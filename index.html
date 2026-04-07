@@ -1,0 +1,532 @@
+<!--
+index.html - 海拓商通官网首页
+
+页面结构:
+1. 文档头部 - 包含元数据、外部资源和自定义样式
+2. 导航栏 - 固定在顶部，包含公司logo、导航菜单和语言切换
+3. 首页英雄区 - 展示公司核心价值和标语
+4. 公司理念 - 介绍公司的经营理念和价值观
+5. 业务领域 - 展示公司的主要业务服务
+6. 联系我们 - 引导用户联系公司
+7. 页脚 - 包含公司信息、导航链接和社交媒体
+8. 脚本部分 - 处理移动端菜单和滚动动画
+
+国际化支持:
+- 使用data-i18n属性标记需要翻译的文本
+- 加载i18n.js脚本处理语言切换和翻译
+
+响应式设计:
+- 使用Tailwind CSS的响应式类
+- 针对不同屏幕尺寸优化布局和字体大小
+
+动画效果:
+- 英雄区标题和按钮的渐入动画
+- 公司理念区块的滚动显示动画
+- 卡片和按钮的悬停效果
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 文档元数据 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杭州海拓商通国际贸易有限公司</title>
+    
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A4750',
+                        secondary: '#F8F9FA',
+                        accent: '#7A8B9C',
+                        text: '#333333',
+                        lightText: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'Noto Sans JP', 'Noto Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Tailwind 工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .text-balance { text-wrap: balance; }
+            .transition-smooth { transition: all 0.5s ease-in-out; }
+        }
+    </style>
+    
+    <!-- 自定义样式 -->
+    <style>
+        /* 导入字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+        
+        /* 全局样式 */
+        body {
+            font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif;
+            background-color: #F8F9FA;
+        }
+        
+        /* 英雄区样式 */
+        .hero-section {
+            min-height: 100vh;
+            height: 100vh;
+            background-color: #F8F9FA;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 英雄区渐变叠加层 */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(122, 139, 156, 0.05), rgba(122, 139, 156, 0.02));
+            z-index: 1;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0) 20%,
+                rgba(255, 255, 255, 0) 80%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            z-index: 1;
+        }
+        
+        /* 英雄区内容容器 */
+        .hero-section > div {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 0;
+        }
+        
+        /* 英雄区标题动画 */
+        .hero-section h1 {
+            font-weight: 400;
+            color: #3A4750;
+            line-height: 1.2;
+            word-wrap: break-word;
+            animation: heroTitleAnimation 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+        
+        @keyframes heroTitleAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* 英雄区副标题动画 */
+        .hero-section p {
+            font-weight: 300;
+            color: #666666;
+            line-height: 1.4;
+            word-wrap: break-word;
+            animation: heroSubtitleAnimation 1.5s ease-out 0.3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes heroSubtitleAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式字体大小 */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+            }
+            .hero-section p {
+                font-size: 1rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2rem !important;
+            }
+            .hero-section p {
+                font-size: 0.9rem !important;
+            }
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 公司理念区块样式 */
+        #philosophy-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        #philosophy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 业务领域区块样式 */
+        #business-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        #business-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 业务卡片动画 */
+        .card-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .card-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-animate:nth-child(1) { transition-delay: 0.1s; }
+        .card-animate:nth-child(2) { transition-delay: 0.2s; }
+        .card-animate:nth-child(3) { transition-delay: 0.3s; }
+
+        /* 联系我们区块样式 */
+        #contact-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        #contact-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 页脚区块样式 */
+        #footer-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        #footer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 导航链接样式 */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7A8B9C;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* 主按钮样式和动画 */
+        .btn-primary {
+            transition: all 0.3s ease;
+            animation: heroButtonAnimation 1.5s ease-out 0.6s forwards;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(215, 179, 119, 0.3);
+        }
+        
+        @keyframes heroButtonAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* 卡片悬停效果 */
+        .card {
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* 语言切换器样式 */
+        .lang-switcher a {
+            transition: all 0.3s ease;
+        }
+        
+        .lang-switcher a:hover {
+            color: #7A8B9C;
+        }
+        
+        .lang-switcher a.active {
+            color: #7A8B9C;
+            font-weight: 500;
+        }
+        
+        /* 保留文本中的换行符 */
+        .preserve-newlines {
+            white-space: pre-line;
+        }
+    </style>
+    
+    <!-- 国际化脚本 -->
+    <script src="i18n.js"></script>
+    <script src="components-loader.js"></script>
+</head>
+<body class="text-text">
+    <!-- 导航栏占位符 -->
+    <div id="header-placeholder"></div>
+
+    <!-- 首页英雄区 -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- 公司核心标语 -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-light tracking-wider mb-6" data-i18n="pages.index.hero.title">
+                    海纳百商，拓通全球
+                </h1>
+                <!-- 公司简介副标题 -->
+                <p class="text-lightText text-lg md:text-xl font-light mb-10 leading-relaxed preserve-newlines" data-i18n="pages.index.hero.subtitle">
+                    以广阔胸怀链接全球商贸资源，用专业能力开拓跨境贸易新通路。
+                    <br class="md:hidden">
+                    助力每一位合作伙伴，在全球市场高效互通、稳健发展。
+                </p>
+                <!-- 了解更多按钮 -->
+                <a href="about.html" class="inline-block btn-primary bg-accent text-white px-8 py-3 rounded-sm text-sm font-light tracking-wider hover:bg-accent/90" data-i18n="pages.index.hero.button">
+                    了解更多
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司理念 -->
+    <section id="philosophy-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- 公司理念内容 -->
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl font-light tracking-wider mb-6" data-i18n="pages.index.philosophy.title">
+                            我们的理念
+                        </h2>
+                        <!-- 理念第一段 -->
+                        <p class="text-lightText text-base font-light mb-6 leading-relaxed" data-i18n="pages.index.philosophy.content1">
+                            杭州海拓商通国际贸易有限公司创立于 2026 年，立足杭州、面向世界，秉承诚信为本、专业致远、合作共赢的核心经营理念，专注打造一站式全球贸易服务平台。
+                        </p>
+                        <!-- 理念第二段 -->
+                        <p class="text-lightText text-base font-light mb-8 leading-relaxed" data-i18n="pages.index.philosophy.content2">
+                            我们坚持以客户需求为核心，以合规高效为准则，深耕国际贸易全链条服务，用专业与信任搭建中外商贸互通的坚实桥梁。
+                        </p>
+                        <!-- 理念第三段 -->
+                         <p class="text-lightText text-base font-light mb-8 leading-relaxed" data-i18n="pages.index.philosophy.content3">
+                            我们相信，开放带来机遇，专业成就价值，愿与全球伙伴携手，共拓贸易新边界、共享发展新机遇。
+                        </p>
+                        <!-- 了解更多按钮 -->
+                        <a href="about.html" class="inline-block border border-accent text-accent px-6 py-2 rounded-sm text-sm font-light tracking-wider hover:bg-accent hover:text-white transition-smooth" data-i18n="pages.index.philosophy.button">
+                            了解更多
+                        </a>
+                    </div>
+                    <!-- 公司理念图片 -->
+                    <div class="order-1 md:order-2">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20business%20meeting%20room%20with%20modern%20design&image_size=landscape_4_3" alt="公司理念" class="w-full h-auto rounded-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务领域 -->
+    <section id="business-section" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <!-- 业务领域标题和副标题 -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-light tracking-wider mb-4" data-i18n="pages.index.business.title">
+                        业务领域
+                    </h2>
+                    <p class="text-lightText text-base font-light max-w-2xl mx-auto leading-relaxed" data-i18n="pages.index.business.subtitle">
+                        我们专注于为企业提供全方位的商务解决方案，满足不同行业的专业需求
+                    </p>
+                </div>
+                
+                <!-- 业务卡片网格 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 业务1 - 商务咨询 -->
+                    <div class="card card-animate bg-white p-6 rounded-sm">
+                        <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                            <i class="fa fa-handshake-o text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-3" data-i18n="pages.index.business.items.0.title">商务咨询</h3>
+                        <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.index.business.items.0.content">
+                            为企业提供市场分析、战略规划、运营优化等专业咨询服务，帮助企业制定可持续发展策略。
+                        </p>
+                        <a href="business.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.index.business.items.0.button">
+                            查看详情 →
+                        </a>
+                    </div>
+
+                    <!-- 业务2 - 国际业务 -->
+                    <div class="card card-animate bg-white p-6 rounded-sm">
+                        <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                            <i class="fa fa-globe text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-3" data-i18n="pages.index.business.items.1.title">国际业务</h3>
+                        <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.index.business.items.1.content">
+                            帮助企业开拓国际市场，提供跨文化交流支持，建立全球业务网络。
+                        </p>
+                        <a href="business.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.index.business.items.1.button">
+                            查看详情 →
+                        </a>
+                    </div>
+
+                    <!-- 业务3 - 市场拓展 -->
+                    <div class="card card-animate bg-white p-6 rounded-sm">
+                        <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                            <i class="fa fa-line-chart text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-3" data-i18n="pages.index.business.items.2.title">市场拓展</h3>
+                        <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.index.business.items.2.content">
+                            为企业提供市场调研、产品推广、销售渠道建设等服务，助力企业快速占领市场。
+                        </p>
+                        <a href="business.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.index.business.items.2.button">
+                            查看详情 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-light tracking-wider mb-6" data-i18n="pages.index.contact.title">
+                    联系我们
+                </h2>
+                <p class="text-lightText text-base font-light max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="pages.index.contact.subtitle">
+                    如果您对我们的服务感兴趣，欢迎随时与我们联系，我们将竭诚为您服务。
+                </p>
+                <a href="contact.html" class="inline-block btn-primary bg-accent text-white px-8 py-3 rounded-sm text-sm font-light tracking-wider hover:bg-accent/90" data-i18n="pages.index.contact.button">
+                    联系方式
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本部分 -->
+    <script>
+        // 滚动显示动画检测函数
+        function checkScroll() {
+            const windowHeight = window.innerHeight;
+            const scrollTriggerPoint = windowHeight * 0.85;
+
+            // 检测各区块
+            const sections = [
+                { id: 'philosophy-section', selector: null },
+                { id: 'business-section', selector: '.card-animate' },
+                { id: 'contact-section', selector: null },
+                { id: 'footer-section', selector: null }
+            ];
+
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                if (!element) return;
+
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top;
+
+                // 如果区块进入视口
+                if (elementTop < scrollTriggerPoint) {
+                    element.classList.add('visible');
+
+                    // 如果有子元素需要依次动画
+                    if (section.selector) {
+                        const children = element.querySelectorAll(section.selector);
+                        children.forEach(child => {
+                            child.classList.add('visible');
+                        });
+                    }
+                }
+            });
+        }
+
+        // 初始检查
+        window.addEventListener('load', checkScroll);
+        // 滚动时检查
+        window.addEventListener('scroll', checkScroll);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkScroll);
+    </script>
+</body>
+</html>

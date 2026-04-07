@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 页面元信息 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杭州海拓商通国际贸易有限公司 | 业务介绍</title>
+    
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A4750',
+                        secondary: '#F8F9FA',
+                        accent: '#7A8B9C',
+                        text: '#333333',
+                        lightText: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'Noto Sans JP', 'Noto Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义 Tailwind 工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .text-balance { text-wrap: balance; }
+            .transition-smooth { transition: all 0.5s ease-in-out; }
+        }
+    </style>
+    
+    <!-- 自定义样式 -->
+    <style>
+        /* 导入字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+        
+        /* 全局样式 */
+        body {
+            font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif;
+            background-color: #F8F9FA;
+        }
+        
+        /* 导航链接样式 */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7A8B9C;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* 按钮样式 */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(215, 179, 119, 0.3);
+        }
+        
+        /* 服务卡片样式 */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* 语言切换器样式 */
+        .lang-switcher a {
+            transition: all 0.3s ease;
+        }
+        
+        .lang-switcher a:hover {
+            color: #7A8B9C;
+        }
+        
+        .lang-switcher a.active {
+            color: #7A8B9C;
+            font-weight: 500;
+        }
+        
+        /* 保留文本中的换行符 */
+        .preserve-newlines {
+            white-space: pre-line;
+        }
+
+        /* 页面动画样式 - 滚动渐变效果 */
+        /* 业务展示区块动画 */
+        #services-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #services-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 服务卡片动画 - 交错动画效果 */
+        .card-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .card-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-animate:nth-child(1) { transition-delay: 0.1s; }
+        .card-animate:nth-child(2) { transition-delay: 0.2s; }
+        .card-animate:nth-child(3) { transition-delay: 0.3s; }
+        .card-animate:nth-child(4) { transition-delay: 0.4s; }
+        .card-animate:nth-child(5) { transition-delay: 0.5s; }
+        .card-animate:nth-child(6) { transition-delay: 0.6s; }
+
+        /* 服务流程区块动画 */
+        #process-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #process-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 业务特色区块动画 */
+        #advantages-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #advantages-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 咨询服务区块动画 */
+        #consultation-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #consultation-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 页脚区块动画 */
+        #footer-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #footer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    
+    <!-- 国际化脚本 -->
+    <script src="i18n.js"></script>
+    <script src="components-loader.js"></script>
+</head>
+<body class="text-text">
+    <!-- 导航栏占位符 -->
+    <div id="header-placeholder"></div>
+
+    <!-- 页面标题部分 -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-light tracking-wider mb-6" data-i18n="pages.business.hero.title">
+                    业务介绍
+                </h1>
+                <p class="text-lightText text-lg font-light leading-relaxed" data-i18n="pages.business.hero.description">
+                    我们致力于为企业提供全方位的商务解决方案，满足不同行业的专业需求，帮助企业实现可持续发展。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务分类部分 -->
+    <section class="py-12 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <!-- 业务分类按钮组 -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="px-6 py-2 bg-accent text-white text-sm font-light rounded-sm" data-i18n="pages.business.categories.all">全部业务</button>
+                    <button class="px-6 py-2 bg-white text-lightText text-sm font-light rounded-sm hover:bg-accent hover:text-white transition-smooth" data-i18n="pages.business.categories.consulting">商务咨询</button>
+                    <button class="px-6 py-2 bg-white text-lightText text-sm font-light rounded-sm hover:bg-accent hover:text-white transition-smooth" data-i18n="pages.business.categories.international">国际业务</button>
+                    <button class="px-6 py-2 bg-white text-lightText text-sm font-light rounded-sm hover:bg-accent hover:text-white transition-smooth" data-i18n="pages.business.categories.market">市场拓展</button>
+                    <button class="px-6 py-2 bg-white text-lightText text-sm font-light rounded-sm hover:bg-accent hover:text-white transition-smooth" data-i18n="pages.business.categories.digital">数字解决方案</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务展示部分 -->
+    <section id="services-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <!-- 业务服务卡片网格 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 业务1: 商务咨询 -->
+                    <div class="card-animate service-card bg-white border border-gray-100 rounded-sm overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-handshake-o text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-light mb-3" data-i18n="pages.business.services.items[0].title">商务咨询</h3>
+                            <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.business.services.items[0].content">
+                                为企业提供市场分析、战略规划、运营优化等专业咨询服务，帮助企业制定可持续发展策略。
+                            </p>
+                            <ul class="text-lightText text-sm font-light space-y-2 mb-6">
+                                <li class="flex items-center" data-i18n="pages.business.services.items[0].features[0]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    市场分析与调研
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[0].features[1]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    企业战略规划
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[0].features[2]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    运营流程优化
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[0].features[3]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    组织架构设计
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.business.services.items[0].button">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 业务2: 国际业务 -->
+                    <div class="card-animate service-card bg-white border border-gray-100 rounded-sm overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-globe text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-light mb-3" data-i18n="pages.business.services.items[1].title">国际业务</h3>
+                            <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.business.services.items[1].content">
+                                帮助企业开拓国际市场，提供跨文化交流支持，建立全球业务网络。
+                            </p>
+                            <ul class="text-lightText text-sm font-light space-y-2 mb-6">
+                                <li class="flex items-center" data-i18n="pages.business.services.items[1].features[0]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    海外市场进入策略
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[1].features[1]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    跨文化交流培训
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[1].features[2]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    国际商务合作对接
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[1].features[3]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    海外品牌推广
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.business.services.items[1].button">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 业务3: 市场拓展 -->
+                    <div class="card-animate service-card bg-white border border-gray-100 rounded-sm overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-line-chart text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-light mb-3" data-i18n="pages.business.services.items[2].title">市场拓展</h3>
+                            <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.business.services.items[2].content">
+                                为企业提供市场调研、品牌推广、销售渠道建设等服务，助力企业快速占领市场。
+                            </p>
+                            <ul class="text-lightText text-sm font-light space-y-2 mb-6">
+                                <li class="flex items-center" data-i18n="pages.business.services.items[2].features[0]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    市场调研与分析
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[2].features[1]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    品牌策略制定
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[2].features[2]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    销售渠道建设
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[2].features[3]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    营销活动策划
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.business.services.items[2].button">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 业务4: 数字解决方案 -->
+                    <div class="card-animate service-card bg-white border border-gray-100 rounded-sm overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-laptop text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-light mb-3" data-i18n="pages.business.services.items[3].title">数字解决方案</h3>
+                            <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.business.services.items[3].content">
+                                为企业提供数字化转型咨询、系统实施、数据分析等服务，提升企业运营效率。
+                            </p>
+                            <ul class="text-lightText text-sm font-light space-y-2 mb-6">
+                                <li class="flex items-center" data-i18n="pages.business.services.items[3].features[0]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    数字化转型咨询
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[3].features[1]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    业务系统实施
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[3].features[2]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    数据分析与洞察
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[3].features[3]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    数字营销方案
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.business.services.items[3].button">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 业务5: 人力资源服务 -->
+                    <div class="card-animate service-card bg-white border border-gray-100 rounded-sm overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-users text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-light mb-3" data-i18n="pages.business.services.items[4].title">人力资源服务</h3>
+                            <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.business.services.items[4].content">
+                                为企业提供人才招聘、培训开发、薪酬福利设计等人力资源解决方案。
+                            </p>
+                            <ul class="text-lightText text-sm font-light space-y-2 mb-6">
+                                <li class="flex items-center" data-i18n="pages.business.services.items[4].features[0]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    人才招聘与猎头
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[4].features[1]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    员工培训与开发
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[4].features[2]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    薪酬福利设计
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[4].features[3]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    绩效管理体系
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.business.services.items[4].button">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 业务6: 法律与合规 -->
+                    <div class="card-animate service-card bg-white border border-gray-100 rounded-sm overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 bg-secondary rounded-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-file-text-o text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-light mb-3" data-i18n="pages.business.services.items[5].title">法律与合规</h3>
+                            <p class="text-lightText text-sm font-light mb-4 leading-relaxed" data-i18n="pages.business.services.items[5].content">
+                                为企业提供法律咨询、合规审查、合同起草等服务，保障企业合法经营。
+                            </p>
+                            <ul class="text-lightText text-sm font-light space-y-2 mb-6">
+                                <li class="flex items-center" data-i18n="pages.business.services.items[5].features[0]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    企业法律咨询
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[5].features[1]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    合规审查与评估
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[5].features[2]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    合同起草与审查
+                                </li>
+                                <li class="flex items-center" data-i18n="pages.business.services.items[5].features[3]">
+                                    <i class="fa fa-check text-accent mr-2"></i>
+                                    知识产权保护
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="inline-block text-accent text-sm font-light tracking-wider hover:underline" data-i18n="pages.business.services.items[5].button">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 标准化服务流程部分 -->
+    <section id="process-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-12 text-center" data-i18n="pages.business.process.title">
+                    标准化服务流程
+                </h2>
+                
+                <!-- 服务流程 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <!-- 左侧箭头 -->
+                    <div class="md:col-span-1 flex justify-center">
+                        <div class="relative h-full">
+                            <div class="absolute top-0 bottom-0 w-0.5 bg-accent/20 mx-auto"></div>
+                            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <div class="absolute top-3/4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧步骤 -->
+                    <div class="md:col-span-11 space-y-12">
+                        <!-- 步骤1: 需求深度研判 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+                                <span class="text-accent font-light">01</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-light mb-4" data-i18n="pages.business.process.step1.title">标准化服务流需求深度研判</h3>
+                                <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.business.process.step1.content">
+                                    专属商务顾问一对一深度沟通，全面梳理客户的企业现状、核心诉求、目标规划，精准定位客户对日出海 / 对华采购的核心痛点与核心需求，形成需求研判报告。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤2: 定制方案输出 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+                                <span class="text-accent font-light">02</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-light mb-4" data-i18n="pages.business.process.step2.title">定制方案输出</h3>
+                                <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.business.process.step2.content">
+                                    基于客户个性化需求，定制专属落地执行方案，明确服务内容、执行周期、落地路径、交付标准与权责边界，确保方案合规、可落地、可验证，与客户确认后正式启动项目。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤3: 全流程落地执行 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+                                <span class="text-accent font-light">03</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-light mb-4" data-i18n="pages.business.process.step3.title">全流程落地执行</h3>
+                                <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.business.process.step3.content">
+                                    专属项目团队全流程跟进执行，严格按照方案节点推进，实时同步项目进度，及时响应并解决落地过程中的各类问题，保障服务高效、合规、按计划推进。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤4: 交付复盘与持续服务 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+                                <span class="text-accent font-light">04</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-light mb-4" data-i18n="pages.business.process.step4.title">交付复盘与持续服务</h3>
+                                <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.business.process.step4.content">
+                                    项目完成后进行全维度交付验收与复盘总结，同步优化建议；同时为客户提供持续的市场动态更新、资源对接与售后配套服务，陪伴客户长期稳定发展。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务特色部分 -->
+    <section id="advantages-section" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-12 text-center" data-i18n="pages.business.advantages.title">
+                    我们的优势
+                </h2>
+                
+                <!-- 优势列表 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- 优势1: 中日赛道垂直深耕，本土资源全覆盖 -->
+                    <div class="flex service-card p-6 rounded-sm bg-white border border-gray-100">
+                        <div class="w-12 flex-shrink-0 flex items-center justify-center">
+                            <i class="fa fa-map-signs text-accent text-2xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.business.advantages.items[0].title">中日赛道垂直深耕，本土资源全覆盖</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.business.advantages.items[0].content">
+                                聚焦中日双向贸易赛道深耕，深度吃透两国贸易政策、准入标准、市场环境与商业习惯，联动日本本土全链路合作资源及中国长三角优质供应链，为中日双边客户提供高落地性的本土资源支持与全流程服务。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 优势2: 对日出海全案服务，一站式解决落地痛点 -->
+                    <div class="flex service-card p-6 rounded-sm bg-white border border-gray-100">
+                        <div class="w-12 flex-shrink-0 flex items-center justify-center">
+                            <i class="fa fa-rocket text-accent text-2xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.business.advantages.items[1].title">对日出海全案服务，一站式解决落地痛点</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.business.advantages.items[1].content">
+                                打造对日品牌出海全链路全案服务能力，覆盖本土化定位、合规准入、全渠道铺设、营销推广、售后配套全环节，可定制专属分销方案，适配不同规模企业需求，一站式解决对日出海全流程痛点。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 优势3: 日企对华采购安心体系，全流程透明可控 -->
+                    <div class="flex service-card p-6 rounded-sm bg-white border border-gray-100">
+                        <div class="w-12 flex-shrink-0 flex items-center justify-center">
+                            <i class="fa fa-shopping-cart text-accent text-2xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.business.advantages.items[2].title">日企对华采购安心体系，全流程透明可控</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.business.advantages.items[2].content">
+                                贴合日本商事标准打造对华采购全流程安心服务体系，坚持全环节信息透明，建立多层级严选品控与日本本土售后保障体系，彻底解决日企对华采购的核心痛点，实现采购全程安心、高效、可控。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 优势4: 标准化 + 数字化管控，极致提升服务效率 -->
+                    <div class="flex service-card p-6 rounded-sm bg-white border border-gray-100">
+                        <div class="w-12 flex-shrink-0 flex items-center justify-center">
+                            <i class="fa fa-cogs text-accent text-2xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.business.advantages.items[3].title">标准化 + 数字化管控，极致提升服务效率</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.business.advantages.items[3].content">
+                                打磨中日贸易全流程标准化服务体系，明确各节点交付标准与时效；搭建数字化管控系统，实现订单、物流、服务节点实时同步与全程追溯，大幅降低沟通成本，提升服务响应与项目落地效率。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 优势5: 全流程合规管控，筑牢贸易安全底线 -->
+                    <div class="flex service-card p-6 rounded-sm bg-white border border-gray-100">
+                        <div class="w-12 flex-shrink-0 flex items-center justify-center">
+                            <i class="fa fa-shield text-accent text-2xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.business.advantages.items[4].title">全流程合规管控，筑牢贸易安全底线</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.business.advantages.items[4].content">
+                                拥有专业中日贸易合规团队，实时跟进两国贸易相关法规政策迭代，为中日双边客户提供全流程合规风控支持，提前规避各类跨境贸易风险，保障合作全程合规、安全、稳定。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们部分 -->
+    <section id="consultation-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-light tracking-wider mb-6" data-i18n="pages.business.consultation.title">
+                    咨询服务
+                </h2>
+                <p class="text-lightText text-base font-light max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="pages.business.consultation.content">
+                    如果您对我们的服务感兴趣，欢迎随时与我们联系，我们将为您提供专业的咨询服务。
+                </p>
+                <a href="contact.html" class="inline-block btn-primary bg-accent text-white px-8 py-3 rounded-sm text-sm font-light tracking-wider hover:bg-accent/90" data-i18n="pages.business.consultation.button">
+                    联系我们
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本部分 -->
+    <script>
+        // 业务分类切换功能
+        document.querySelectorAll('.flex-wrap button').forEach(button => {
+            button.addEventListener('click', function() {
+                // 移除所有活动状态
+                document.querySelectorAll('.flex-wrap button').forEach(btn => {
+                    btn.classList.remove('bg-accent', 'text-white');
+                    btn.classList.add('bg-white', 'text-lightText');
+                });
+                
+                // 添加当前活动状态
+                this.classList.add('bg-accent', 'text-white');
+                this.classList.remove('bg-white', 'text-lightText');
+                
+                // 这里可以添加业务分类切换的具体逻辑
+            });
+        });
+    </script>
+
+    <!-- 滚动动画检测脚本 -->
+    <script>
+        function checkScroll() {
+            const windowHeight = window.innerHeight;
+            const scrollTriggerPoint = windowHeight * 0.85;
+            const sections = [
+                { id: 'services-section', selector: '.card-animate' },
+                { id: 'process-section', selector: null },
+                { id: 'advantages-section', selector: null },
+                { id: 'consultation-section', selector: null },
+                { id: 'footer-section', selector: null }
+            ];
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                if (!element) return;
+                const rect = element.getBoundingClientRect();
+                if (rect.top < scrollTriggerPoint) {
+                    element.classList.add('visible');
+                    if (section.selector) {
+                        element.querySelectorAll(section.selector).forEach(child => {
+                            child.classList.add('visible');
+                        });
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>
