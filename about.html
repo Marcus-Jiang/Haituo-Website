@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 页面元信息 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杭州海拓商通国际贸易有限公司 | 公司简介</title>
+    
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A4750',
+                        secondary: '#F8F9FA',
+                        accent: '#7A8B9C',
+                        text: '#333333',
+                        lightText: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'Noto Sans JP', 'Noto Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义 Tailwind 工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .text-balance { text-wrap: balance; }
+            .transition-smooth { transition: all 0.5s ease-in-out; }
+        }
+    </style>
+    
+    <!-- 自定义样式 -->
+    <style>
+        /* 导入字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+        
+        /* 全局样式 */
+        body {
+            font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif;
+            background-color: #F8F9FA;
+        }
+        
+        /* 导航链接样式 */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7A8B9C;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* 按钮样式 */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(215, 179, 119, 0.3);
+        }
+        
+        /* 语言切换器样式 */
+        .lang-switcher a {
+            transition: all 0.3s ease;
+        }
+        
+        .lang-switcher a:hover {
+            color: #7A8B9C;
+        }
+        
+        .lang-switcher a.active {
+            color: #7A8B9C;
+            font-weight: 500;
+        }
+        
+        /* 保留文本中的换行符 */
+        .preserve-newlines {
+            white-space: pre-line;
+        }
+
+        /* 页面动画样式 - 滚动渐变效果 */
+        /* 核心资源与合作网络区块动画 */
+        #resources-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #resources-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 公司理念区块动画 */
+        #philosophy-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #philosophy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 理念卡片动画 - 交错动画效果 */
+        .card-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .card-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-animate:nth-child(1) { transition-delay: 0.1s; }
+        .card-animate:nth-child(2) { transition-delay: 0.2s; }
+        .card-animate:nth-child(3) { transition-delay: 0.3s; }
+        .card-animate:nth-child(4) { transition-delay: 0.4s; }
+
+        /* 三年战略规划区块动画 */
+        #vision-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #vision-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 团队介绍区块动画 */
+        #team-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #team-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 加入我们区块动画 */
+        #join-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #join-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 页脚区块动画 */
+        #footer-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        #footer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    
+    <!-- 国际化脚本 -->
+    <script src="i18n.js"></script>
+    <script src="components-loader.js"></script>
+</head>
+<body class="text-text">
+    <!-- 导航栏占位符 -->
+    <div id="header-placeholder"></div>
+
+    <!-- 页面标题部分 -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-light tracking-wider mb-6" data-i18n="pages.about.hero.title">
+                    公司简介
+                </h1>
+                <p class="text-lightText text-lg font-light leading-relaxed preserve-newlines" data-i18n="pages.about.hero.description">
+                    杭州海拓商通国际贸易有限公司 2026 年成立于杭州，是一家综合性国际贸易企业。
+                    <br>主营进出口及国内贸易、贸易咨询、代理、中介等业务，兼具自营贸易与全流程市场开拓能力。
+                    <br>公司立足中国、服务全球，以专业、高效、诚信的服务，为国内外客户打通跨境贸易链路，链接全球商机，助力企业实现全球化发展。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心资源与合作网络部分 -->
+    <section id="resources-section" class="py-16 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-10 text-center" data-i18n="pages.about.resources.title">
+                    核心资源与合作网络
+                </h2>
+                
+                <!-- 资源内容 -->
+                <div class="space-y-12">
+                    <!-- 全球核心市场本土合作资源 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="order-2 md:order-1">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.about.resources.globalResources">全球核心市场本土合作资源</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines mb-4" data-i18n="pages.about.resources.globalResourcesContent">
+                                以中日双边贸易积累的本土合作经验为基础，与全球多个国家和地区的商社、渠道商、行业协会达成深度战略合作，拥有成熟的本土渠道资源、合规服务团队与商业落地能力，可为企业全球市场布局提供全链路本土支持，解决跨境贸易本土化落地的核心痛点。
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-0.5 bg-accent mr-3"></div>
+                                <span class="text-xs font-light text-accent">Global Network</span>
+                            </div>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=global%20business%20network%20connection%20map&image_size=landscape_4_3" alt="全球核心市场本土合作资源" class="w-full h-auto rounded-sm shadow-md">
+                        </div>
+                    </div>
+                    
+                    <!-- 国内优质供应链体系 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=supply%20chain%20logistics%20network&image_size=landscape_4_3" alt="国内优质供应链体系" class="w-full h-auto rounded-sm shadow-md">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.about.resources.supplyChain">国内优质供应链体系</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines mb-4" data-i18n="pages.about.resources.supplyChainContent">
+                                联动国内长三角核心产业带及全国多区域优质生产企业、品牌方，搭建稳定、多元的优质供应链体系，可为海外企业入华、国内产品出海提供坚实的供应链保障，满足不同品类、不同规模的贸易合作需求。
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-0.5 bg-accent mr-3"></div>
+                                <span class="text-xs font-light text-accent">Supply Chain</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 全链条跨境服务配套 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="order-2 md:order-1">
+                            <h3 class="text-lg font-light mb-4" data-i18n="pages.about.resources.crossBorderServices">全链条跨境服务配套</h3>
+                            <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines mb-4" data-i18n="pages.about.resources.crossBorderServicesContent">
+                                与全球头部物流、报关、信保、外汇结算机构达成长期稳定合作，整合跨境贸易全链条配套资源，可为客户提供稳定、高效、低成本的一站式配套支持，全方位降低跨境贸易的运营门槛与试错成本。
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-10 h-0.5 bg-accent mr-3"></div>
+                                <span class="text-xs font-light text-accent">Cross-border Services</span>
+                            </div>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cross%20border%20trade%20services%20flow&image_size=landscape_4_3" alt="全链条跨境服务配套" class="w-full h-auto rounded-sm shadow-md">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司理念部分 -->
+    <section id="philosophy-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-12 text-center" data-i18n="pages.about.philosophy.title">
+                    我们的理念
+                </h2>
+                
+                <!-- 理念卡片网格 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 诚信合规 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-handshake-o text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-4" data-i18n="pages.about.philosophy.integrity">诚信合规</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.philosophy.integrityContent">
+                            坚守中日两国法规与国际贸易准则，履约守信、全流程信息透明，对中日双边客户双向负责，筑牢跨境合作的信任基石。
+                        </p>
+                    </div>
+                    
+                    <!-- 专业深耕 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-check-circle text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-4" data-i18n="pages.about.philosophy.professionalism">专业深耕</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.philosophy.professionalismContent">
+                            聚焦中日贸易赛道垂直深耕，吃透两国政策规则、市场特性与商业习惯，打造专业实操团队，为客户提供可落地、高适配的跨境贸易解决方案。
+                        </p>
+                    </div>
+                    
+                    <!-- 双向安心 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-shield text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-4" data-i18n="pages.about.philosophy.assurance">双向安心</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.philosophy.assuranceContent">
+                            兼顾中日双边客户核心诉求，构建全链路服务保障体系，同步解决中国企业对日出海、日本企业对华采购的后顾之忧，实现双向托付、全程安心。
+                        </p>
+                    </div>
+                    
+                    <!-- 价值共生 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-leaf text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-light mb-4" data-i18n="pages.about.philosophy.value">价值共生</h3>
+                        <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.philosophy.valueContent">
+                            以标准化、数字化服务提效降本，摒弃单次交易短视思维，与中日客户长期绑定、共同成长，实现双向赋能、价值共生。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三年战略发展规划部分 -->
+    <section id="vision-section" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-12 text-center" data-i18n="pages.about.vision.title">
+                    三年战略发展规划
+                </h2>
+                
+                <!-- 三年规划时间轴 -->
+                <div class="space-y-8">
+                    <!-- 第一年：体系筑基年 -->
+                    <div class="bg-white rounded-sm overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <div class="p-5 transition-all duration-300 hover:bg-secondary/50">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-14 h-14 bg-accent rounded-full flex items-center justify-center mr-5 flex-shrink-0">
+                                        <span class="text-white font-light text-xl">01</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-light mb-1" data-i18n="pages.about.vision.year1.title">第一年：体系筑基年</h3>
+                                        <p class="text-accent text-sm font-light" data-i18n="pages.about.vision.year1.coreGoal">核心目标：完成中日双向贸易服务的基础框架搭建，筑牢业务开展的核心根基</p>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center transition-transform duration-300">
+                                    <i class="fa fa-angle-down text-accent transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 opacity-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="ml-19 space-y-4">
+                                <!-- 1、标准化服务体系搭建 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year1.item1.title">1、标准化服务体系搭建</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year1.item1.content">
+                                        完成中日双向贸易全链路服务流程的标准化梳理，打磨可复制、高适配的对日品牌出海服务范本，统一全业务的服务交付标准与权责边界。
+                                    </p>
+                                </div>
+                                
+                                <!-- 2、核心资源库体系建设 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year1.item2.title">2、核心资源库体系建设</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year1.item2.content">
+                                        搭建日本本土线上线下渠道资源库、中国优质供应链严选品控库，完成核心合作资源的筛选、准入与建档，为双向业务开展筑牢资源基础。
+                                    </p>
+                                </div>
+                                
+                                <!-- 3、售后保障基础框架落地 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year1.item3.title">3、售后保障基础框架落地</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year1.item3.content">
+                                        完成日本本土售后保障体系的基础框架搭建，明确售后响应标准、处理流程与本土合作机制，提前解决中日双边贸易的售后落地核心痛点。
+                                    </p>
+                                </div>
+                                
+                                <!-- 4、全流程服务管控体系上线 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year1.item4.title">4、全流程服务管控体系上线</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year1.item4.content">
+                                        实现服务全节点可追溯、可管控，建立标准化的节点管控与进度同步机制，全面夯实基础服务能力，大幅提升客户服务响应效率。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 第二年：能力深耕年 -->
+                    <div class="bg-white rounded-sm overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <div class="p-5 transition-all duration-300 hover:bg-secondary/50">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-14 h-14 bg-accent rounded-full flex items-center justify-center mr-5 flex-shrink-0">
+                                        <span class="text-white font-light text-xl">02</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-light mb-1" data-i18n="pages.about.vision.year2.title">第二年：能力深耕年</h3>
+                                        <p class="text-accent text-sm font-light" data-i18n="pages.about.vision.year2.coreGoal">核心目标：深化业务能力、优化服务体系、打造市场口碑，形成差异化核心竞争力</p>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center transition-transform duration-300">
+                                    <i class="fa fa-angle-down text-accent transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 opacity-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="ml-19 space-y-4">
+                                <!-- 1、日本本土渠道网络深度拓展 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year2.item1.title">1、日本本土渠道网络深度拓展</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year2.item1.content">
+                                        拓展日本本土线上线下全渠道分销网络，深化与日本主流电商平台、线下零售终端、专业商社的战略合作，拓宽中国企业对日出海的核心通路。
+                                    </p>
+                                </div>
+                                
+                                <!-- 2、对日品牌出海全案服务能力升级 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year2.item2.title">2、对日品牌出海全案服务能力升级</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year2.item2.content">
+                                        完善品牌出海全链路全案服务能力，形成覆盖大中小各类企业的个性化对日出海解决方案，满足不同规模、不同品类客户的差异化出海需求。
+                                    </p>
+                                </div>
+                                
+                                <!-- 3、日企对华采购服务体系优化升级 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year2.item3.title">3、日企对华采购服务体系优化升级</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year2.item3.content">
+                                        升级日本企业对华采购服务体系，优化全流程多层级品控标准，完善日本本土售后保障网络，实现采购全流程信息实时同步、节点可查。
+                                    </p>
+                                </div>
+                                
+                                <!-- 4、服务流程与运营效率持续优化 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year2.item4.title">4、服务流程与运营效率持续优化</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year2.item4.content">
+                                        精简优化全流程服务环节，打通各业务模块的协同链路，进一步提升项目交付效率与服务质量，打造中日贸易细分赛道的高口碑服务标杆。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 第三年：价值引领年 -->
+                    <div class="bg-white rounded-sm overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <div class="p-5 transition-all duration-300 hover:bg-secondary/50">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-14 h-14 bg-accent rounded-full flex items-center justify-center mr-5 flex-shrink-0">
+                                        <span class="text-white font-light text-xl">03</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-light mb-1" data-i18n="pages.about.vision.year3.title">第三年：价值引领年</h3>
+                                        <p class="text-accent text-sm font-light" data-i18n="pages.about.vision.year3.coreGoal">核心目标：成为赛道标杆服务商，实现全闭环运营，为中日双边客户创造长期价值</p>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center transition-transform duration-300">
+                                    <i class="fa fa-angle-down text-accent transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 opacity-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="ml-19 space-y-4">
+                                <!-- 1、中日贸易赛道标杆服务商打造 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year3.item1.title">1、中日贸易赛道标杆服务商打造</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year3.item1.content">
+                                        完成从基础服务商到中日跨境贸易赛道标杆服务商的升级，形成兼具专业度与市场口碑的品牌形象，成为中日企业跨境合作的首选合作伙伴。
+                                    </p>
+                                </div>
+                                
+                                <!-- 2、全链路服务体系成熟闭环运营 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year3.item2.title">2、全链路服务体系成熟闭环运营</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year3.item2.content">
+                                        建成成熟完善的对日品牌出海全案服务体系，以及覆盖日本核心区域的对华采购安心服务网络，实现「优质选品 - 品控管控 - 透明服务 - 售后保障」的全闭环运营。
+                                    </p>
+                                </div>
+                                
+                                <!-- 3、核心经营指标达到行业领先 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year3.item3.title">3、核心经营指标达到行业领先</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year3.item3.content">
+                                        实现服务品质、运营效率、客户满意度三大核心指标，达到中日跨境贸易细分赛道的行业领先水平，形成可参考的行业服务标准。
+                                    </p>
+                                </div>
+                                
+                                <!-- 4、中日双边客户长期价值创造 -->
+                                <div class="transition-all duration-300 hover:bg-secondary/30 p-3 rounded-sm">
+                                    <h4 class="text-base font-light mb-2" data-i18n="pages.about.vision.year3.item4.title">4、中日双边客户长期价值创造</h4>
+                                    <p class="text-lightText text-sm font-light leading-relaxed preserve-newlines" data-i18n="pages.about.vision.year3.item4.content">
+                                        深化与中日双边客户的长期战略合作，持续优化服务模式与价值供给，为中日企业跨境发展提供全周期赋能，持续创造更高的商业价值。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队介绍部分 -->
+    <section id="team-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl font-light tracking-wider mb-12 text-center" data-i18n="pages.about.team.title">
+                    我们的团队
+                </h2>
+                
+                <!-- 团队成员卡片网格 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 团队成员1 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20businesswoman&image_size=square" alt="闫菲-Kiki" class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-md">
+                        <h3 class="text-lg font-light mb-2" data-i18n="pages.about.team.member1.name">闫菲-Kiki</h3>
+                        <p class="text-accent text-sm font-light mb-4" data-i18n="pages.about.team.member1.position">创始人&CEO</p>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.about.team.member1.bio">
+                            日本市场拓展
+                        </p>
+                    </div>
+                    
+                    <!-- 团队成员2 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=long%20haired%20dachshund%20dog&image_size=square" alt="元宝" class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-md">
+                        <h3 class="text-lg font-light mb-2" data-i18n="pages.about.team.member2.name">元宝</h3>
+                        <p class="text-accent text-sm font-light mb-4" data-i18n="pages.about.team.member2.position">宠物</p>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.about.team.member2.bio">
+                            很厉害的腊肠犬
+                        </p>
+                    </div>
+                    
+                    <!-- 团队成员3 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20businessman&image_size=square" alt="蒋新培" class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-md">
+                        <h3 class="text-lg font-light mb-2" data-i18n="pages.about.team.member3.name">蒋新培</h3>
+                        <p class="text-accent text-sm font-light mb-4" data-i18n="pages.about.team.member3.position">供应链管理</p>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.about.team.member3.bio">
+                            国内供应链服务
+                        </p>
+                    </div>
+                    
+                    <!-- 团队成员4 -->
+                    <div class="card-animate bg-secondary p-6 rounded-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20businessman&image_size=square" alt="近藤" class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-md">
+                        <h3 class="text-lg font-light mb-2" data-i18n="pages.about.team.member4.name">近藤</h3>
+                        <p class="text-accent text-sm font-light mb-4" data-i18n="pages.about.team.member4.position">专业顾问</p>
+                        <p class="text-lightText text-sm font-light leading-relaxed" data-i18n="pages.about.team.member4.bio">
+                            很厉害的人
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们部分 -->
+    <section id="join-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-light tracking-wider mb-6" data-i18n="pages.about.join.title">
+                    加入我们
+                </h2>
+                <p class="text-lightText text-base font-light max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="pages.about.join.content">
+                    如果您对我们的企业文化和价值观认同，并且希望在一个充满挑战和机遇的环境中工作，欢迎加入我们的团队。
+                </p>
+                <a href="contact.html" class="inline-block btn-primary bg-accent text-white px-8 py-3 rounded-sm text-sm font-light tracking-wider hover:bg-accent/90" data-i18n="pages.about.join.button">
+                    联系方式
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 团队介绍悬停展开脚本 -->
+    <script>
+        document.querySelectorAll('.bg-white.rounded-sm').forEach(card => {
+            const header = card.querySelector('.p-5');
+            const content = card.querySelector('.px-5.pb-5');
+            const arrow = card.querySelector('.fa-angle-down');
+
+            card.addEventListener('mouseenter', function() {
+                content.classList.remove('opacity-0', 'max-h-0');
+                content.classList.add('opacity-100', 'max-h-96');
+                arrow.classList.add('rotate-180');
+            });
+
+            card.addEventListener('mouseleave', function() {
+                content.classList.remove('opacity-100', 'max-h-96');
+                content.classList.add('opacity-0', 'max-h-0');
+                arrow.classList.remove('rotate-180');
+            });
+        });
+    </script>
+
+    <!-- 滚动动画检测脚本 -->
+    <script>
+        function checkScroll() {
+            const windowHeight = window.innerHeight;
+            const scrollTriggerPoint = windowHeight * 0.85;
+            const sections = [
+                { id: 'resources-section', selector: null },
+                { id: 'philosophy-section', selector: '.card-animate' },
+                { id: 'vision-section', selector: null },
+                { id: 'team-section', selector: '.card-animate' },
+                { id: 'join-section', selector: null },
+                { id: 'footer-section', selector: null }
+            ];
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                if (!element) return;
+                const rect = element.getBoundingClientRect();
+                if (rect.top < scrollTriggerPoint) {
+                    element.classList.add('visible');
+                    if (section.selector) {
+                        element.querySelectorAll(section.selector).forEach(child => {
+                            child.classList.add('visible');
+                        });
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+{
+  "version": "1.0",
+  "lastModified": "2026-02-15",
+  "pages": {
+    "index": {
+      "title": "Hangzhou Haituo International Trading Co., Ltd.",
+      "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "business": "Services",
+        "contact": "Contact"
+      },
+      "hero": {
+        "title": "Bridging Global Trade, Expanding Horizons",
+        "subtitle": "Connecting global business resources with broad vision, pioneering new cross-border trade pathways with professional expertise.\nEmpowering every partner to achieve efficient connectivity and steady growth in the global market.",
+        "button": "Learn More"
+      },
+      "philosophy": {
+        "title": "Our Philosophy",
+        "content1": "Hangzhou Haituo International Trading Co., Ltd. was established in 2026, based in Hangzhou and facing the world. We uphold the core business philosophy of integrity, professionalism, and win-win cooperation, dedicated to building a one-stop global trade service platform.",
+        "content2": "We prioritize customer needs and operate with compliance and efficiency. We are deeply engaged in the full chain of international trade services, building solid bridges for China-foreign business connectivity through professionalism and trust.",
+        "content3": "We believe that openness brings opportunities and professionalism creates value. We are committed to working with global partners to explore new trade frontiers and share new development opportunities.",
+        "button": "Learn More"
+      },
+      "business": {
+        "title": "Business Areas",
+        "subtitle": "We focus on providing comprehensive business solutions for enterprises, meeting the professional needs of different industries",
+        "items": [
+          {
+            "title": "Business Consulting",
+            "content": "Providing professional consulting services such as market analysis, strategic planning, and operational optimization to help enterprises develop sustainable development strategies.",
+            "button": "Learn More →"
+          },
+          {
+            "title": "International Business",
+            "content": "Helping enterprises expand into international markets, providing cross-cultural communication support, and establishing global business networks.",
+            "button": "Learn More →"
+          },
+          {
+            "title": "Market Development",
+            "content": "Providing services such as market research, brand promotion, and sales channel establishment to help enterprises quickly capture markets.",
+            "button": "Learn More →"
+          }
+        ]
+      },
+      "contact": {
+        "title": "Contact Us",
+        "subtitle": "If you are interested in our services, please feel free to contact us at any time. We will serve you wholeheartedly.",
+        "button": "Contact Us"
+      }
+    },
+    "about": {
+      "title": "About Us - Hangzhou Haituo International Trading Co., Ltd.",
+      "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "business": "Services",
+        "contact": "Contact"
+      },
+      "hero": {
+        "title": "About Us",
+        "description": "Hangzhou Haituo International Trading Co., Ltd. was established in Hangzhou in 2026. It is a comprehensive international trade enterprise.\nMainly engaged in import and export and domestic trade, trade consulting, agency, intermediary and other businesses, with both self-operated trade and full-process market development capabilities.\nBased in China and serving the world, with professional, efficient and honest services, we help domestic and foreign customers open up cross-border trade links, connect global business opportunities, and help enterprises achieve global development."
+      },
+      "resources": {
+        "title": "Core Resources and Cooperation Network",
+        "globalResources": "Local Cooperation Resources in Global Core Markets",
+        "globalResourcesContent": "Based on the local cooperation experience accumulated from China-Japan bilateral trade, we have established in-depth strategic cooperation with trading companies, distributors, and industry associations in multiple countries and regions around the world. We have mature local channel resources, compliance service teams, and business implementation capabilities, which can provide full-chain local support for enterprises' global market layout and solve the core pain points of cross-border trade localization.",
+        "supplyChain": "Domestic High-quality Supply Chain System",
+        "supplyChainContent": "Linking core industrial belts in the Yangtze River Delta and high-quality manufacturing enterprises and brands in multiple regions across China, we have built a stable and diverse high-quality supply chain system. This can provide solid supply chain guarantees for overseas enterprises entering China and domestic products going global, meeting trade cooperation needs of different categories and scales.",
+        "crossBorderServices": "Full-chain Cross-border Service Support",
+        "crossBorderServicesContent": "We have established long-term stable cooperation with global leading logistics, customs declaration, credit insurance, and foreign exchange settlement institutions. By integrating full-chain supporting resources for cross-border trade, we can provide customers with stable, efficient, and low-cost one-stop supporting services, comprehensively reducing the operational threshold and trial-and-error costs of cross-border trade."
+      },
+      "philosophy": {
+        "title": "Our Philosophy",
+        "integrity": "Integrity and Compliance",
+        "integrityContent": "Adhere to the laws and regulations of China and Japan as well as international trade standards, fulfill commitments, maintain full-process information transparency, be dual responsible for China-Japan bilateral customers, and build a solid foundation of trust for cross-border cooperation.",
+        "professionalism": "Professional Deep Cultivation",
+        "professionalismContent": "Focus on vertical deep cultivation in the China-Japan trade track, thoroughly understand the policy rules, market characteristics, and business habits of both countries, build a professional practical operation team, and provide customers with implementable and highly adaptable cross-border trade solutions.",
+        "assurance": "Two-way Assurance",
+        "assuranceContent": "Take into account the core demands of China-Japan bilateral customers, build a full-link service guarantee system, simultaneously solve the worries of Chinese enterprises going global to Japan and Japanese enterprises purchasing from China, and realize two-way trust and whole-process reassurance.",
+        "value": "Value Symbiosis",
+        "valueContent": "Improve efficiency and reduce costs through standardized and digital services, abandon the short-sighted thinking of single transactions, bind with China-Japan customers for long-term growth, and achieve two-way empowerment and value symbiosis."
+      },
+      "vision": {
+        "title": "Three-Year Strategic Development Plan",
+        "year1": {
+          "title": "Year 1: System Foundation Year",
+          "coreGoal": "Core Goal: Complete the basic framework for China-Japan two-way trade services and lay a solid foundation for business development",
+          "item1": {
+            "title": "1. Standardized Service System Establishment",
+            "content": "Complete the standardized sorting of the full-chain service process for China-Japan two-way trade, polish replicable and highly adaptable service templates for Japanese brand going global, and unify service delivery standards and responsibility boundaries for all businesses."
+          },
+          "item2": {
+            "title": "2. Core Resource Database System Construction",
+            "content": "Build a database of Japanese local online and offline channel resources and a strictly selected quality control database of Chinese high-quality supply chains, complete the screening, access, and filing of core cooperation resources, and lay a solid resource foundation for two-way business development."
+          },
+          "item3": {
+            "title": "3. After-sales Support Basic Framework Implementation",
+            "content": "Complete the basic framework construction of the Japanese local after-sales support system, clarify after-sales response standards, processing procedures, and local cooperation mechanisms, and proactively solve the core pain points of after-sales implementation in China-Japan two-way trade."
+          },
+          "item4": {
+            "title": "4. Full-process Service Control System Launch",
+            "content": "Realize traceable and controllable service nodes, establish standardized node control and progress synchronization mechanisms, comprehensively consolidate basic service capabilities, and significantly improve customer service response efficiency."
+          }
+        },
+        "year2": {
+          "title": "Year 2: Capability Deepening Year",
+          "coreGoal": "Core Goal: Deepen business capabilities, optimize service systems, build market reputation, and form differentiated core competitiveness",
+          "item1": {
+            "title": "1. Deep Expansion of Japanese Local Channel Network",
+            "content": "Expand the full-channel distribution network of Japanese local online and offline channels, deepen strategic cooperation with mainstream Japanese e-commerce platforms, offline retail terminals, and professional trading companies, and broaden the core channels for Chinese enterprises to go global to Japan."
+          },
+          "item2": {
+            "title": "2. Upgrade of Full-case Service Capabilities for Japanese Brand Going Global",
+            "content": "Improve the full-chain full-case service capabilities for brand going global, form personalized Japanese market entry solutions covering large, medium, and small enterprises, and meet the differentiated going global needs of customers of different scales and categories."
+          },
+          "item3": {
+            "title": "3. Optimization and Upgrade of Japanese Enterprise China Procurement Service System",
+            "content": "Upgrade the Chinese procurement service system for Japanese enterprises, optimize full-process multi-level quality control standards, improve the Japanese local after-sales support network, and realize real-time synchronization of procurement full-process information and node checkability."
+          },
+          "item4": {
+            "title": "4. Continuous Optimization of Service Process and Operational Efficiency",
+            "content": "Streamline and optimize full-process service links, open up coordination links between business modules, further improve project delivery efficiency and service quality, and create a high-reputation service benchmark in the China-Japan trade segment track."
+          }
+        },
+        "year3": {
+          "title": "Year 3: Value Leading Year",
+          "coreGoal": "Core Goal: Become a track benchmark service provider, realize full closed-loop operation, and create long-term value for China-Japan bilateral customers",
+          "item1": {
+            "title": "1. Building of China-Japan Trade Track Benchmark Service Provider",
+            "content": "Complete the upgrade from basic service provider to China-Japan cross-border trade track benchmark service provider, form a brand image with both professionalism and market reputation, and become the preferred partner for cross-border cooperation between Chinese and Japanese enterprises."
+          },
+          "item2": {
+            "title": "2. Mature Closed-loop Operation of Full-chain Service System",
+            "content": "Build a mature and complete full-case service system for Japanese brand going global, and a China procurement assurance service network covering core Japanese regions, realizing full closed-loop operation of 'high-quality selection - quality control - transparent service - after-sales support'."
+          },
+          "item3": {
+            "title": "3. Core Operating Indicators Reaching Industry Leadership",
+            "content": "Achieve three core indicators of service quality, operational efficiency, and customer satisfaction, reaching industry-leading levels in the China-Japan cross-border trade segment track, and forming reference industry service standards."
+          },
+          "item4": {
+            "title": "4. Long-term Value Creation for China-Japan Bilateral Customers",
+            "content": "Deepen long-term strategic cooperation with China-Japan bilateral customers, continuously optimize service models and value supply, provide full-cycle empowerment for cross-border development of Chinese and Japanese enterprises, and continuously create higher business value."
+          }
+        }
+      },
+      "team": {
+        "title": "Our Team",
+        "member1": {
+          "name": "闫菲-Kiki",
+          "position": "Founder&CEO",
+          "bio": "Japan Market Development"
+        },
+        "member2": {
+          "name": "元宝",
+          "position": "Pet",
+          "bio": "A very capable dachshund"
+        },
+        "member3": {
+          "name": "蒋新培",
+          "position": "Supply Chain Management",
+          "bio": "Domestic Supply Chain Services"
+        },
+        "member4": {
+          "name": "Kondo Takanori",
+          "position": "Professional Consultant",
+          "bio": "A very capable person"
+        }
+      },
+      "join": {
+        "title": "Join Us",
+        "content": "If you identify with our corporate culture and values, and hope to work in an environment full of challenges and opportunities, welcome to join our team.",
+        "button": "Contact Us"
+      }
+    },
+    "business": {
+      "title": "Services - Hangzhou Haituo International Trading Co., Ltd.",
+      "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "business": "Services",
+        "contact": "Contact"
+      },
+      "hero": {
+        "title": "Our Services",
+        "description": "We are committed to providing comprehensive business solutions for enterprises, meeting the professional needs of different industries, and helping enterprises achieve sustainable development."
+      },
+      "categories": {
+        "all": "All Services",
+        "consulting": "Business Consulting",
+        "international": "International Business",
+        "market": "Market Development",
+        "digital": "Digital Solutions"
+      },
+      "services": {
+        "items": [
+          {
+            "title": "Business Consulting",
+            "content": "Providing professional consulting services such as market analysis, strategic planning, and operational optimization to help enterprises develop sustainable development strategies.",
+            "features": [
+              "Market Analysis and Research",
+              "Corporate Strategic Planning",
+              "Operational Process Optimization",
+              "Organizational Structure Design"
+            ],
+            "button": "Learn More →"
+          },
+          {
+            "title": "International Business",
+            "content": "Helping enterprises expand into international markets, providing cross-cultural communication support, and establishing global business networks.",
+            "features": [
+              "Overseas Market Entry Strategy",
+              "Cross-cultural Communication Training",
+              "International Business Cooperation Matching",
+              "Overseas Brand Promotion"
+            ],
+            "button": "Learn More →"
+          },
+          {
+            "title": "Market Development",
+            "content": "Providing services such as market research, brand promotion, and sales channel establishment to help enterprises quickly capture markets.",
+            "features": [
+              "Market Research and Analysis",
+              "Brand Strategy Development",
+              "Sales Channel Construction",
+              "Marketing Campaign Planning"
+            ],
+            "button": "Learn More →"
+          },
+          {
+            "title": "Digital Solutions",
+            "content": "Providing digital transformation consulting, system implementation, data analysis and other services to improve enterprise operational efficiency.",
+            "features": [
+              "Digital Transformation Consulting",
+              "Business System Implementation",
+              "Data Analysis and Insights",
+              "Digital Marketing Solutions"
+            ],
+            "button": "Learn More →"
+          },
+          {
+            "title": "Human Resources Services",
+            "content": "Providing human resources solutions such as talent recruitment, training and development, and compensation and benefits design for enterprises.",
+            "features": [
+              "Talent Recruitment and Headhunting",
+              "Employee Training and Development",
+              "Compensation and Benefits Design",
+              "Performance Management System"
+            ],
+            "button": "Learn More →"
+          },
+          {
+            "title": "Legal & Compliance",
+            "content": "Providing legal consulting, compliance review, contract drafting and other services for enterprises to ensure legal operation.",
+            "features": [
+              "Corporate Legal Consulting",
+              "Compliance Review and Evaluation",
+              "Contract Drafting and Review",
+              "Intellectual Property Protection"
+            ],
+            "button": "Learn More →"
+          }
+        ]
+      },
+      "process": {
+        "title": "Standardized Service Process",
+        "step1": {
+          "title": "In-depth Needs Analysis",
+          "content": "Dedicated business consultants conduct one-on-one in-depth communication to comprehensively sort out the customer's enterprise status, core demands, and goal planning, accurately identify the core pain points and core needs of customers for Japan outbound/inbound procurement, and form a needs analysis report."
+        },
+        "step2": {
+          "title": "Customized Solution Output",
+          "content": "Based on the customer's personalized needs, customize exclusive implementation plans, clarify service content, execution cycle, implementation path, delivery standards, and responsibility boundaries, ensure the plan is compliant, implementable, and verifiable, and officially launch the project after customer confirmation."
+        },
+        "step3": {
+          "title": "Full-process Implementation",
+          "content": "Dedicated project teams follow up the entire process, strictly advance according to plan nodes, synchronize project progress in real time, timely respond to and solve various problems during the implementation process, and ensure services are efficient, compliant, and progressing as planned."
+        },
+        "step4": {
+          "title": "Delivery Review and Continuous Service",
+          "content": "After project completion, conduct comprehensive delivery acceptance and review summary, synchronize optimization suggestions; at the same time, provide customers with continuous market dynamics updates, resource docking, and after-sales supporting services to accompany customers' long-term stable development."
+        }
+      },
+      "advantages": {
+        "title": "Our Advantages",
+        "items": [
+          {
+            "title": "Deep Cultivation in China-Japan Track, Full Coverage of Local Resources",
+            "content": "Focusing on deep cultivation in the China-Japan two-way trade track, thoroughly understanding the trade policies, access standards, market environment and business habits of both countries, linking Japan's local full-chain cooperation resources and China's Yangtze River Delta high-quality supply chain, providing high implementability local resource support and full-process services for China-Japan bilateral customers."
+          },
+          {
+            "title": "Comprehensive Japan Outbound Service, One-stop Solution for Landing Pain Points",
+            "content": "Building comprehensive full-chain Japan outbound service capabilities, covering localization positioning, compliance access, full-channel deployment, marketing promotion, and after-sales support, customizable exclusive distribution plans to adapt to different scale enterprise needs, one-stop solving all-process pain points of Japan outbound."
+          },
+          {
+            "title": "Japan Enterprise China Procurement Assurance System, Full-process Transparent and Controllable",
+            "content": "Tailored to Japanese commercial standards to create a full-process assurance service system for China procurement, adhering to full-link information transparency, establishing multi-level strict selection quality control and Japanese local after-sales guarantee system, completely solving the core pain points of Japanese enterprises' China procurement, realizing the whole procurement process reassuring, efficient and controllable."
+          },
+          {
+            "title": "Standardization + Digital Control, Maximizing Service Efficiency",
+            "content": "Polishing the China-Japan trade full-process standardized service system, clarifying delivery standards and timeliness for each node; building a digital control system to realize real-time synchronization and full-process traceability of orders, logistics, and service nodes, greatly reducing communication costs, improving service response and project landing efficiency."
+          },
+          {
+            "title": "Full-process Compliance Control, Building Trade Safety Bottom Line",
+            "content": "With a professional China-Japan trade compliance team, real-time following the iteration of trade-related laws and policies of both countries, providing full-process compliance risk control support for China-Japan bilateral customers, avoiding various cross-border trade risks in advance, ensuring the whole cooperation process is compliant, safe and stable."
+          }
+        ]
+      },
+      "consultation": {
+        "title": "Consultation Services",
+        "content": "If you are interested in our services, please feel free to contact us at any time, and we will provide you with professional consulting services.",
+        "button": "Contact Us"
+      }
+    },
+    "contact": {
+      "title": "Contact - Hangzhou Haituo International Trading Co., Ltd.",
+      "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "business": "Services",
+        "contact": "Contact"
+      },
+      "hero": {
+        "title": "Contact Us",
+        "description": "If you are interested in our services, please feel free to contact us at any time, and we will serve you wholeheartedly."
+      },
+      "info": {
+        "title": "Contact Information",
+        "addressLabel": "Address",
+        "address": "Room 36201, 3rd Floor, No.1040 Yue Ming Road, Changhe Street, Binjiang District, Hangzhou, Zhejiang Province",
+        "phoneLabel": "Phone",
+        "phone": "+86-0571-8088-0800",
+        "emailLabel": "Email",
+        "email": "info@haituointl.com",
+        "hours": "Business Hours",
+        "hoursContent": "Monday to Friday: 9:00 - 18:00\nSaturday: 10:00 - 14:00\nSunday and public holidays: Closed",
+        "follow": "Follow Us"
+      },
+      "branches": {
+        "title": "Branches",
+        "hk": {
+          "name": "Hong Kong Office",
+          "content": "HAITUO HONG KONG LIMITED\nComing soon..."
+        },
+        "jp": {
+          "name": "Japan Office",
+          "content": "HAITUO JAPAN CO., LTD.\nComing soon..."
+        }
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "How to book consulting services?",
+            "answer": "You can contact us by phone or email, and our customer service personnel will contact you within 24 hours to arrange professional consulting services."
+          },
+          {
+            "question": "How is the service fee calculated?",
+            "answer": "Our service fees are comprehensively calculated based on project type, complexity, time and other factors. We will provide you with a detailed fee plan before consultation."
+          },
+          {
+            "question": "How long is the service cycle?",
+            "answer": "The service cycle depends on the project type and complexity, generally between 1-3 months. We will provide you with a detailed time plan before the project starts."
+          }
+        ]
+      }
+    }
+  },
+  "footer": {
+    "company": "Haituo Shangtong",
+    "companyFull": "Hangzhou Haituo International Trading Co., Ltd.",
+    "navigation": "Navigation",
+    "contact": "Contact Us",
+    "follow": "Follow Us",
+    "copyright": "© 2026 Hangzhou Haituo International Trading Co., Ltd. HAI TUO Inc. All rights reserved.",
+    "contactInfo": {
+      "address": "Room 36201, 3rd Floor, No.1040 Yue Ming Road, Changhe Street, Binjiang District, Hangzhou, Zhejiang Province",
+      "email": "info@haituointl.com",
+      "phone": "+86-0571-8088-0800"
+    }
+  },
+  "language": {
+    "zh": "中文",
+    "ja": "日本語",
+    "en": "English"
+  }
+}
