@@ -397,6 +397,11 @@ class I18n {
                     if (langDropdown) {
                         langDropdown.classList.add('hidden');
                     }
+                    // 隐藏手机端菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 }
             });
         });

@@ -152,18 +152,13 @@
           "bio": "日本市場の開拓"
         },
         "member2": {
-          "name": "元宝",
-          "position": "ペット",
-          "bio": "とてもすごいダックスン"
-        },
-        "member3": {
           "name": "蒋新培",
           "position": "サプライチェーン管理",
-          "bio": "国内サプライチェーンサービス"
+          "bio": "中国国内サプライチェーンサービス"
         },
-        "member4": {
-          "name": "Kondo Takanori",
-          "position": "専門顧問",
+        "member3": {
+          "name": "Kondo",
+          "position": "日本市場責任者",
           "bio": "とてもすごい人"
         }
       },

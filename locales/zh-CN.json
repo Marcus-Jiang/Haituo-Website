@@ -152,19 +152,14 @@
           "bio": "日本市场拓展"
         },
         "member2": {
-          "name": "元宝",
-          "position": "宠物",
-          "bio": "很厉害的腊肠犬"
-        },
-        "member3": {
           "name": "蒋新培-Marcus",
           "position": "供应链管理",
           "bio": "国内供应链服务"
         },
-        "member4": {
-          "name": "Kondo Takanori",
+        "member3": {
+          "name": "Kondo",
           "position": "日本市场负责人",
-          "bio": "很厉害的人"
+          "bio": "日本市场负责人、高级顾问"
         }
       },
       "join": {
